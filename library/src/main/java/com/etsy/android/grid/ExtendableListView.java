@@ -940,6 +940,10 @@ public abstract class ExtendableListView extends AbsListView {
 
     private boolean onTouchUpTap(final MotionEvent event) {
         // TODO : implement onListItemClick stuff here
+        OnItemClickListener listener = getOnItemClickListener();
+        if (listener != null) {
+            listener.onItemClick(this, null, mFirstPosition + mMotionPosition, 0);
+        }
         return true;
     }
 
